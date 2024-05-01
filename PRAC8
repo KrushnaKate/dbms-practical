@@ -1,0 +1,20 @@
+Write a SQL statement
+a) to add a primary key for a combination of columns location_id and country_id.
+b) to drop the existing primary from the table locations on a combination of columns
+location_id and country_id.
+c) to add a foreign key on job_id column of job_history table referencing to the primary
+key job_id of jobs table.
+
+
+ALTER TABLE locations 
+ADD CONSTRAINT pk_location_country 
+PRIMARY KEY (location_id, country_id);
+
+
+ALTER TABLE locations
+DROP CONSTRAINT pk_location_country;
+
+
+ALTER TABLE job_history
+ADD CONSTRAINT fk_job_id
+FOREIGN KEY (job_id) REFERENCES jobs(job_id);
