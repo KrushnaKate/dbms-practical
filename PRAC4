@@ -1,0 +1,49 @@
+create a row-level trigger for the STUDENT table that would get executed by the DML
+statement like UPDATE, INSERT or DELETE on that table. The trigger will compute and
+show the age difference between current and previous values.
+
+CREATE TABLE STUDENT (
+    student_id INT PRIMARY KEY,
+    student_name VARCHAR(100),
+    age INT
+);
+
+
+DELIMITER //
+CREATE TRIGGER calculate_age_difference
+AFTER INSERT ON STUDENT
+FOR EACH ROW
+BEGIN
+    DECLARE prev_age INT;
+    
+    -- Retrieve the previous age from the table
+    SELECT age INTO prev_age
+    FROM STUDENT
+    WHERE student_id = NEW.student_id - 1;
+
+    -- Calculate the age difference
+    IF prev_age IS NOT NULL THEN
+        SET @age_diff = NEW.age - prev_age;
+    ELSE
+        SET @age_diff = NULL;
+    END IF;
+END //
+DELIMITER ;
+
+
+INSERT INTO STUDENT (student_id, student_name, age) VALUES
+(1, 'John Doe', 20),
+(2, 'Jane Smith', 22),
+(3, 'Michael Johnson', 25);
+
+
+INSERT INTO STUDENT (student_id, student_name, age) VALUES
+(4, 'Emily Williams', 24);
+
+
+
+SELECT @age_diff AS AgeDifference;
+
+
+
+
