@@ -1,3 +1,28 @@
+Sample table attributes: EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL |
+PHONE_NUMBER | HIRE_DATE | JOB_ID | SALARY | COMMISSION_PCT |
+MANAGER_ID | DEPARTMENT_ID |
+a) Write a query to get the difference between the highest and lowest salaries.
+b) to get the department ID and the total salary payable in each department.
+c) to get the average salary for each job ID excluding programmer.
+d) to get the total salary, maximum, minimum, average salary of employees (job ID wise), for
+department ID 90 only.
+
+SELECT MAX(SALARY) - MIN(SALARY) AS salary_difference
+FROM employees;
+
+
+SELECT DEPARTMENT_ID, SUM(SALARY) AS total_salary_payable
+FROM employees
+GROUP BY DEPARTMENT_ID;
+
+
+SELECT JOB_ID, AVG(SALARY) AS average_salary
+FROM employees
+WHERE JOB_ID != 'Programmer'
+GROUP BY JOB_ID;
+
+
+
 SELECT JOB_ID,
        SUM(SALARY) AS total_salary,
        MAX(SALARY) AS max_salary,
