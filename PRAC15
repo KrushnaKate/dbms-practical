@@ -1,0 +1,7 @@
+Display name, credit_rating, sales_rep_id from S_customer table of those customer who
+either satisfies the condition that credit_rating is greater than 5 out of 10 and sales_rep_id is
+equal to 4232.
+
+SELECT name, credit_rating, sales_rep_id
+FROM S_customer
+WHERE credit_rating > 5 AND credit_rating <= 10 AND sales_rep_id = 4232;
