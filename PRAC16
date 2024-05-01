@@ -1,0 +1,12 @@
+Display the id, name and phone number of the customer 1) Whose id falls in the range 303 to
+306
+2) Whose id is greater than 300 and customer belongs to Pune.
+
+SELECT id, name, phone_number
+FROM customers
+WHERE id BETWEEN 303 AND 306;
+
+
+SELECT id, name, phone_number
+FROM customers
+WHERE id > 300 AND city = 'Pune';
