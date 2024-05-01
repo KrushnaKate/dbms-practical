@@ -1,0 +1,38 @@
+creates a row-level trigger for the customers table that would fire for INSERT or UPDATE or
+DELETE operations performed on the CUSTOMERS table. This trigger will display the
+salary difference between the old values and new values. customer table will have the
+attributes-id, name, age, address, salary.
+
+
+CREATE TABLE customers (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    age INT,
+    address VARCHAR(255),
+    salary DECIMAL(10, 2)
+);
+
+
+
+DELIMITER //
+CREATE TRIGGER salary_difference_trigger
+AFTER UPDATE ON customers
+FOR EACH ROW
+BEGIN
+    DECLARE old_salary DECIMAL(10, 2);
+    DECLARE new_salary DECIMAL(10, 2);
+
+    SET old_salary = OLD.salary;
+    SET new_salary = NEW.salary;
+
+    SET @salary_diff = new_salary - old_salary;
+END //
+DELIMITER ;
+
+
+UPDATE customers
+SET salary = 55000
+WHERE id = 1;
+
+
+SELECT @salary_diff AS SalaryDifference;
