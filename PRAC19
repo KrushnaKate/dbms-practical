@@ -1,0 +1,16 @@
+a) Write an SQL query to fetch the EmpId and FullName of all the employees working
+under the Manager with id – ‘986’.
+b) Write an SQL query to fetch the employees whose name begins with any two
+characters, followed by a text “hn” and ends with any sequence of characters.
+c) Write an SQL query to fetch the employee’s full names and replace the space with ‘-
+
+SELECT EmpId, FullName
+FROM EmployeeDetails
+WHERE ManagerId = '986';
+
+SELECT *
+FROM EmployeeDetails
+WHERE FullName LIKE '__hn%';
+
+SELECT REPLACE(FullName, ' ', '-') AS FullName
+FROM EmployeeDetails;
