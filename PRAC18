@@ -1,0 +1,17 @@
+Modifying tables using ALTER TABLE command
+ Adding not null constraint
+ Removing not null constraint
+ Adding a new column
+
+
+
+ALTER TABLE students
+MODIFY COLUMN student_name VARCHAR(100) NOT NULL DEFAULT '';
+
+
+ALTER TABLE students
+MODIFY COLUMN student_name VARCHAR(100) NULL;
+
+
+ALTER TABLE students
+MODIFY COLUMN student_name VARCHAR(100) NULL;
