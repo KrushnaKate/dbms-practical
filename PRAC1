@@ -1,0 +1,40 @@
+consider a table called Students which contains student_id, first_name, last_name,
+department, and age as Columns.create a simple select stored procedure that will select and
+display student records based on a specified department.
+
+
+
+CREATE DATABASE University;
+USE University;
+CREATE TABLE Students (
+    student_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    department VARCHAR(50),
+    age INT
+);
+
+
+INSERT INTO Students (student_id, first_name, last_name, department, age)
+VALUES
+    (1, 'John', 'Doe', 'Computer Science', 20),
+    (2, 'Alice', 'Smith', 'Mathematics', 22),
+    (3, 'Bob', 'Johnson', 'Physics', 21),
+    (4, 'Emily', 'Jones', 'Computer Science', 19),
+    (5, 'Michael', 'Brown', 'Mathematics', 20);
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE GetStudentsByDepartment(IN dept VARCHAR(50))
+BEGIN
+    SELECT student_id, first_name, last_name, department, age
+    FROM Students
+    WHERE department = dept;
+END //
+
+DELIMITER ;
+
+CALL GetStudentsByDepartment('Computer Science');
+
