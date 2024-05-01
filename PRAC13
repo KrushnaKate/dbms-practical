@@ -1,0 +1,10 @@
+Create the table RIVERS having attributes name, length and outflow. Name must not be
+repeated and should have a value. Add a new column called MaxDepth to the rivers table.
+
+CREATE TABLE rivers(
+     name VARCHAR(255) UNIQUE NOT NULL,
+     length INT,
+     outflow INT);
+
+ALTER TABLE rivers
+    ADD COLUMN MaxDepth INT;
