@@ -1,0 +1,26 @@
+Create table EMPLOYEE with attributes E_id, E_name, E_dept, E_salary, E_pno, E_city.
+Create view having E_id, E_name, E_dept, E_salary.
+
+-- Create EMPLOYEE table
+CREATE TABLE EMPLOYEE (
+    E_id INT PRIMARY KEY,
+    E_name VARCHAR(100),
+    E_dept VARCHAR(100),
+    E_salary DECIMAL(10, 2),
+    E_pno VARCHAR(20),
+    E_city VARCHAR(100)
+);
+
+-- Insert some sample data into the EMPLOYEE table
+INSERT INTO EMPLOYEE (E_id, E_name, E_dept, E_salary, E_pno, E_city)
+VALUES
+    (1, 'John Doe', 'IT', 50000.00, '123-456-7890', 'New York'),
+    (2, 'Jane Smith', 'HR', 60000.00, '234-567-8901', 'Los Angeles'),
+    (3, 'Michael Johnson', 'Finance', 70000.00, '345-678-9012', 'Chicago'),
+    (4, 'Emily Williams', 'Marketing', 55000.00, '456-789-0123', 'Houston'),
+    (5, 'David Brown', 'IT', 45000.00, '567-890-1234', 'San Francisco');
+
+-- Create view with E_id, E_name, E_dept, E_salary
+CREATE VIEW EMPLOYEE_VIEW AS
+SELECT E_id, E_name, E_dept, E_salary
+FROM EMPLOYEE;
