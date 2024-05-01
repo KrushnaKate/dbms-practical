@@ -1,0 +1,20 @@
+Create a table to store employee details. Define input parameters within the CREATE
+PROCEDURE statement and pass them in the CALL statement.
+
+CREATE TABLE EMP(
+     name VARCHAR(255),
+     id INT);
+
+
+
+DELIMITER //
+CREATE PROCEDURE details(IN newname VARCHAR(200),IN newid INT)
+BEGIN
+       INSERT INTO EMP(name,id)values(newname,newid);
+       SELECT * FROM EMP;
+END //
+
+
+
+CALL details("krushna",1);
+end //
