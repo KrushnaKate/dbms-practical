@@ -1,0 +1,22 @@
+Create a student table, showing the records of the students having
+a. Highest marks in math
+b. Lowest attendance
+c. Total number of students
+d. Average marks of dbms
+
+SELECT *
+FROM students
+WHERE math_marks = (SELECT MAX(math_marks) FROM students);
+
+-- Query to get the student with the lowest attendance
+SELECT *
+FROM students
+WHERE attendance = (SELECT MIN(attendance) FROM students);
+
+-- Query to get the total number of students
+SELECT COUNT(*) AS total_students
+FROM students;
+
+-- Query to get the average marks of dbms
+SELECT AVG(dbms_marks) AS avg_dbms_marks
+FROM students;
