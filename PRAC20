@@ -1,0 +1,12 @@
+20) create a simple stored procedure for adding two numbers and call the procedure so that the
+code will be executed.
+
+DELIMITER //
+CREATE PROCEDURE AddNumbers (IN num1 INT, IN num2 INT, OUT result INT)
+BEGIN
+    SET result = num1 + num2;
+END //
+DELIMITER ;
+
+CALL AddNumbers(10, 5, @sum);
+SELECT @sum AS SumResult;
