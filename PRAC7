@@ -1,0 +1,16 @@
+Write a SQL statement
+a) to rename the table countries to country_new.
+b) to add a column ‘no_of _states’ to the country_new.
+c) change the data type of the column country_id to integer in the table locations.
+d)  to add a primary key for a combination of columns location_id and country_id.
+
+ALTER TABLE countries RENAME TO country_new;
+
+
+ALTER TABLE country_new ADD COLUMN no_of_states INT;
+
+
+ALTER TABLE locations ALTER COLUMN country_id TYPE INTEGER;
+
+
+ALTER TABLE locations ADD CONSTRAINT pk_location_country PRIMARY KEY (location_id, country_id);
