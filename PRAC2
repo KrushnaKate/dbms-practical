@@ -1,0 +1,52 @@
+Create a database, switch to that database, create table ‘student’s details’. Create a
+procedure called ‘Show’ to view all the content of the table. Rename the procedure name
+from ‘Show’ to ‘Display’.
+
+
+
+CREATE DATABASE University;
+USE University;
+CREATE TABLE Students (
+    student_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    department VARCHAR(50),
+    age INT
+);
+
+
+INSERT INTO Students (student_id, first_name, last_name, department, age)
+VALUES
+    (1, 'John', 'Doe', 'Computer Science', 20),
+    (2, 'Alice', 'Smith', 'Mathematics', 22),
+    (3, 'Bob', 'Johnson', 'Physics', 21),
+    (4, 'Emily', 'Jones', 'Computer Science', 19),
+    (5, 'Michael', 'Brown', 'Mathematics', 20);
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE TEST()
+BEGIN
+    SELECT * FROM Students;
+    
+END //
+
+DELIMITER ;
+
+DROP PROCEDURE IF EXIST TEST;
+
+DELIMITER //
+
+CREATE PROCEDURE TEST2()
+BEGIN
+    SELECT * FROM Students;
+    
+END //
+
+DELIMITER ;
+
+
+
+
