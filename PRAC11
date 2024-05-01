@@ -1,0 +1,28 @@
+Sample table attributes:
+EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL | PHONE_NUMBER |
+HIRE_DATE | JOB_ID | SALARY | COMMISSION_PCT | MANAGER_ID |
+DEPARTMENT_ID |
+a) Write a query to list the number of jobs available in the employees table.
+b) to get the total salaries payable to employees.
+c) to get the minimum salary from employees table
+d) to get the maximum salary of an employee working as a Programmer.
+e) to get the average salary and number of employees working the department 90.
+
+SELECT COUNT(DISTINCT JOB_ID) AS num_jobs_available
+FROM employees;
+
+
+SELECT SUM(SALARY) AS total_salaries_payable
+FROM employees;
+
+
+SELECT MIN(SALARY) AS min_salary
+FROM employees;
+
+SELECT MAX(SALARY) AS max_salary_programmer
+FROM employees
+WHERE JOB_ID = 'Programmer';
+
+SELECT AVG(SALARY) AS avg_salary_department_90, COUNT(*) AS num_employees_department_90
+FROM employees
+WHERE DEPARTMENT_ID = 90;
