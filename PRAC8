@@ -12,7 +12,7 @@ PRIMARY KEY (location_id, country_id);
 
 
 ALTER TABLE locations
-DROP CONSTRAINT pk_location_country;
+DROP PRIMARY KEY;
 
 
 ALTER TABLE job_history
