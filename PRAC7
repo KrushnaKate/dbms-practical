@@ -10,7 +10,7 @@ ALTER TABLE countries RENAME TO country_new;
 ALTER TABLE country_new ADD COLUMN no_of_states INT;
 
 
-ALTER TABLE locations MODIFY COLUMN country_id INTEGER;
+ALTER TABLE locations MODIFY country_id INT;
 
 
 ALTER TABLE locations ADD CONSTRAINT pk_location_country PRIMARY KEY (location_id, country_id);
